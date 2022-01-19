@@ -23,14 +23,6 @@ export default function Cart() {
     setProducts(jsonData.products);
   };
 
-  // adding the quantity of individual product
-  // const increment = (id) => {
-  //   return dispatch({
-  //     type: "ADD_ITEM",
-  //     payload: id,
-  //   });
-  // };
-
   const increment = (id) => {
     setTotalQuantity(totalQuantity + 1);
     let updatedCart = products.map((item) => {
@@ -57,13 +49,11 @@ export default function Cart() {
     setProducts(updatedCart);
   };
 
-  // const [state, dispatch] = useReducer(productReducer, initialState);
-  // state.data = products;
-
   return (
     <>
-      {/* <CartContext.Provider value={{ ...state, increment, products}}></CartContext.Provider> */}
-      <CartContext.Provider value={{ increment, products, decrement, totalQuantity }}>
+      <CartContext.Provider
+        value={{ increment, products, decrement, totalQuantity }}
+      >
         <ContextCart />
       </CartContext.Provider>
     </>

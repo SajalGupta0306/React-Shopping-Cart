@@ -15,9 +15,15 @@ export default function Items(props) {
           <p>{props.value.desc}</p>
         </div>
         <div className="add-minus-quantity">
-          <i className="fas fa-minus minus" onClick={() => decrement(props.value.id)}/>
+          <i
+            className="fas fa-minus minus"
+            onClick={() => decrement(props.value.id)}
+          />
           <input type="text" placeholder={props.value.quantity} disabled />
-          <i className="fas fa-plus add" onClick={() => increment(props.value.id)}/>
+          <i
+            className="fas fa-plus add"
+            onClick={() => increment(props.value.id)}
+          />
         </div>
         <div className="price">
           <h3>
@@ -26,7 +32,7 @@ export default function Items(props) {
           </h3>
         </div>
       </div>
-      <hr/>
+      <hr />
     </>
   );
 }
