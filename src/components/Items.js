@@ -3,7 +3,6 @@ import { CartContext } from "./Cart";
 
 export default function Items(props) {
   const { increment, decrement } = useContext(CartContext);
-
   return (
     <>
       <div className="items-info">
@@ -16,12 +15,12 @@ export default function Items(props) {
         </div>
         <div className="add-minus-quantity">
           <i
-            className="fas fa-minus minus"
+            className="fas fa-minus"
             onClick={() => decrement(props.value.id)}
           />
           <input type="text" placeholder={props.value.quantity} disabled />
           <i
-            className="fas fa-plus add"
+            className="fas fa-plus"
             onClick={() => increment(props.value.id)}
           />
         </div>

@@ -90,7 +90,6 @@ header {
 .items-info {
   width: 100%;
   height: 11rem;
-  /* background-color: lavender; */
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -184,11 +183,6 @@ header {
 
 .fa-minus:hover {
   color: #ffb800;
-}
-
-.fa-plus,
-.fa-minus {
-  color: var(--icon-color);
 }
 
 /* responsive media queries  */

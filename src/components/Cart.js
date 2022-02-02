@@ -27,8 +27,21 @@ export default function Cart() {
     setTotalQuantity(totalQuantity + 1);
     let updatedCart = products.map((item) => {
       if (item.id === id) {
+        if (document.getElementById(id) !== null) {
+          document.getElementById(id).hidden = false;
+        }
         item.quantity = item.quantity + 1;
-        return { ...item };
+      }
+      return item;
+    });
+    setProducts(updatedCart);
+  };
+
+  const removeItem = (id, count) => {
+    setTotalQuantity(totalQuantity - count);
+    let updatedCart = products.map((item) => {
+      if (item.id === id) {
+        item.quantity = 0;
       }
       return item;
     });
@@ -36,23 +49,33 @@ export default function Cart() {
   };
 
   const decrement = (id) => {
-    setTotalQuantity(totalQuantity - 1);
-    let updatedCart = products
-      .map((item) => {
-        if (item.id === id) {
-          item.quantity = item.quantity - 1;
-          return { ...item };
+    let updatedCart = products.map((item) => {
+      if (item.id === id) {
+        if (item.quantity === 0) {
+          window.alert("Products cannot be less than 0");
+          return item;
         }
-        return item;
-      })
-      .filter((item) => item.quantity !== 0);
+        setTotalQuantity(totalQuantity - 1);
+        item.quantity = item.quantity - 1;
+        if (document.getElementById(id) !== null) {
+          document.getElementById(id).hidden = false;
+        }
+      }
+      return item;
+    });
     setProducts(updatedCart);
   };
 
   return (
     <>
       <CartContext.Provider
-        value={{ increment, products, decrement, totalQuantity }}
+        value={{
+          increment,
+          products,
+          decrement,
+          totalQuantity,
+          removeItem,
+        }}
       >
         <ContextCart />
       </CartContext.Provider>
